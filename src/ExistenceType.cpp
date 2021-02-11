@@ -26,6 +26,23 @@ bool cc::oppositeInfinities(cc::ExistenceType x, cc::ExistenceType y)
     ;
 }
 
+cc::ExistenceType cc::imposeSign(cc::ExistenceType x, bool isPositive)
+{
+    if (infinity(x))
+    {
+        if (isPositive)
+        {
+            x = cc::ExistenceType::Infinity;
+        }
+        else
+        {
+            x = cc::ExistenceType::NegInfinity;
+        }
+    }
+
+    return x;
+}
+
 cc::ExistenceType cc::operator-(cc::ExistenceType x)
 {
     if (x == cc::ExistenceType::Infinity)
@@ -41,7 +58,6 @@ cc::ExistenceType cc::operator-(cc::ExistenceType x)
         return x;
     }
 }
-
 
 cc::ExistenceType cc::operator+(cc::ExistenceType x, cc::ExistenceType y)
 {

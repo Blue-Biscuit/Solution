@@ -34,6 +34,13 @@ namespace cc
     //  True if the two types are opposite infinities.
     bool oppositeInfinities(ExistenceType, ExistenceType);
 
+    //  Imposes the provided sign onto the ExistenceType
+    //      (this is used to impose a sign on AmbiguousInfinity).
+    //
+    //  isPositive -> If true, the ExistenceType will be a positive quantity,
+    //      if false, the ExistenceType will be a negative quantity.
+    ExistenceType imposeSign(ExistenceType, bool isPostive);
+
     //  Unary negation operator for ExistenceTypes (in reality, all this does is change 
     //      -Infinity to Infinity, and vice versa)
     ExistenceType operator-(ExistenceType);
