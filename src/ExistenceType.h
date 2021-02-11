@@ -33,6 +33,13 @@ namespace cc
     //  True if the two types are opposite infinities.
     bool oppositeInfinities(ExistenceType, ExistenceType);
 
-    // Gets the existence of two existence types summed.
+    //  Unary negation operator for ExistenceTypes (in reality, all this does is change 
+    //      -Infinity to Infinity, and vice versa)
+    ExistenceType operator-(ExistenceType);
+
+    //  Gets the existence of two existence types summed.
     ExistenceType operator+(ExistenceType, ExistenceType);
+
+    //  Gets the existence of two existence types subtracted.
+    ExistenceType operator-(ExistenceType, ExistenceType);
 }

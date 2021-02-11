@@ -26,6 +26,23 @@ bool cc::oppositeInfinities(cc::ExistenceType x, cc::ExistenceType y)
     ;
 }
 
+cc::ExistenceType cc::operator-(cc::ExistenceType x)
+{
+    if (x == cc::ExistenceType::Infinity)
+    {
+        return cc::ExistenceType::NegInfinity;
+    }
+    else if (x == cc::ExistenceType::NegInfinity)
+    {
+        return cc::ExistenceType::Infinity;
+    }
+    else
+    {
+        return x;
+    }
+}
+
+
 cc::ExistenceType cc::operator+(cc::ExistenceType x, cc::ExistenceType y)
 {
     //  1. If either types are undefined, then the answer is undefined.
