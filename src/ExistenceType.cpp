@@ -87,3 +87,8 @@ cc::ExistenceType cc::operator+(cc::ExistenceType x, cc::ExistenceType y)
         return cc::ExistenceType::Exists;
     }
 }
+
+cc::ExistenceType cc::operator-(cc::ExistenceType x, cc::ExistenceType y)
+{
+    return x + (-y);
+}
