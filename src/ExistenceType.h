@@ -42,4 +42,7 @@ namespace cc
 
     //  Gets the existence of two existence types subtracted.
     ExistenceType operator-(ExistenceType, ExistenceType);
+
+    //  Gets the existence of two existence types multiplied.
+    ExistenceType operator*(ExistenceType, ExistenceType);
 }

@@ -92,3 +92,49 @@ cc::ExistenceType cc::operator-(cc::ExistenceType x, cc::ExistenceType y)
 {
     return x + (-y);
 }
+
+cc::ExistenceType cc::operator*(cc::ExistenceType x, cc::ExistenceType y)
+{
+    //  1. If either types are undefined, the answer is undefined.
+    //  2. If either types are indeterminate, the answer is indeterminate.
+    //  3. If both are positive infinity, the answer is positive infinity.
+    //  4. If both are negative infinity, the answer is positive infinity.
+    //  5. If the types are opposite infinities, the answer is negative infinity.
+    //  6. Otherwise, the answer exists.
+
+    //  1. If either types are undefined, the answer is undefined.
+    if (x == cc::ExistenceType::Undefined || y == cc::ExistenceType::Undefined)
+    {
+        return cc::ExistenceType::Undefined;
+    }
+
+    //  2. If either types are indeterminate, the answer is indeterminate.
+    else if (x == cc::ExistenceType::Indeterminate || y == cc::ExistenceType::Indeterminate)
+    {
+        return cc::ExistenceType::Indeterminate;
+    }
+
+    //  3. If both are positive infinity, the answer is positive infinity.
+    else if (x == cc::ExistenceType::Infinity && y == cc::ExistenceType::Infinity)
+    {
+        return cc::ExistenceType::Infinity;
+    }
+
+    //  4. If both are negative infinity, the answer is positive infinity.
+    else if (x == cc::ExistenceType::NegInfinity && y == cc::ExistenceType::NegInfinity)
+    {
+        return cc::ExistenceType::Infinity;
+    }
+
+    //  5. If the types are opposite infinities, the answer is negative infinity.
+    else if (cc::oppositeInfinities(x, y))
+    {
+        return cc::ExistenceType::NegInfinity;
+    }
+
+    //  6. Otherwise, the answer exists.
+    else
+    {
+        return cc::ExistenceType::Exists;
+    }
+}
