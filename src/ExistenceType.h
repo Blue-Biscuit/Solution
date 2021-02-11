@@ -12,6 +12,7 @@ namespace cc
         Undefined,
         Infinity,
         NegInfinity,
+        AmbiguousInfinity,
         Indeterminate
     };
 
@@ -45,4 +46,6 @@ namespace cc
 
     //  Gets the existence of two existence types multiplied.
     ExistenceType operator*(ExistenceType, ExistenceType);
+
+    ExistenceType operator/(ExistenceType, ExistenceType);
 }
