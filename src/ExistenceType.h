@@ -30,5 +30,9 @@ namespace cc
     // t -> The existence type to check.
     bool infinity(ExistenceType t);
 
+    //  True if the two types are opposite infinities.
+    bool oppositeInfinities(ExistenceType, ExistenceType);
 
+    // Gets the existence of two existence types summed.
+    ExistenceType operator+(ExistenceType, ExistenceType);
 }
