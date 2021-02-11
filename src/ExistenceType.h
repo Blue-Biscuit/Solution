@@ -18,24 +18,17 @@ namespace cc
     // True if the solution exists.
     //
     // t -> The existence type to check.
-    bool exists(ExistenceType t)
-    {
-        return t == ExistenceType::Exists;
-    }
+    bool exists(ExistenceType t);
 
     // True if the solution does not exist.
     //
     // t -> The existence type to check.
-    bool doesNotExist(ExistenceType t)
-    {
-        return !exists(t);
-    }
+    bool doesNotExist(ExistenceType t);
 
     // True if the solution is one of the infinities.
     //
     // t -> The existence type to check.
-    bool infinity(ExistenceType t)
-    {
-        return t == ExistenceType::Infinity || t == ExistenceType::NegInfinity;
-    }
+    bool infinity(ExistenceType t);
+
+
 }
