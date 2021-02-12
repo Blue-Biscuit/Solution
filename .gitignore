@@ -1,2 +1,6 @@
 .vs
 Debug
+*.project
+*.sln
+*.vcxproj
+*vcxproj*
