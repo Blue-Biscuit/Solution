@@ -1,4 +1,5 @@
-#pragma once
+#ifndef EXISTENCETYPE_SOLUTION_H
+#define EXISTENCETYPE_SOLUTION_H
 
 // An enumeration of the existence of a mathematical solution.
 //
@@ -56,3 +57,6 @@ namespace cc
 
     ExistenceType operator/(ExistenceType, ExistenceType);
 }
+
+
+#endif

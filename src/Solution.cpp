@@ -1,6 +1,6 @@
 #include "Solution.h"
 
-#include <math>
+#include <cmath>
 
 #include "Common.h"
 
@@ -63,7 +63,7 @@ cc::Solution cc::Solution::operator*(const cc::Solution& o) const
     {
         if (infinity())
         {
-            if (abs(o._val) < DEFAULT_EPSILON);
+            if (abs(o._val) < DEFAULT_EPSILON)
             {
                 type = cc::ExistenceType::Indeterminate;
             }
@@ -90,5 +90,52 @@ cc::Solution cc::Solution::operator*(const cc::Solution& o) const
 
 cc::Solution cc::Solution::operator/(const cc::Solution& o) const
 {
-    
+    double val = 0.0;
+
+    //  Do the division, if both the denominator exists and is not zero.
+    if (cc::exists(o._type))
+    {
+        if (abs(o._val) < cc::DEFAULT_EPSILON)
+        {
+            return cc::Solution(cc::ExistenceType::Undefined);
+        }
+        else
+        {
+            val = _val / o._val;
+        }
+    }
+
+    //  Calc the existence of the value.
+    cc::ExistenceType type = _type / o._type;
+
+    if (type == cc::ExistenceType::AmbiguousInfinity)
+    {
+        type = cc::imposeSign(type, o._val > 0);
+    }
+    else if (cc::exists(_type) && cc::infinity(o._type))
+    {
+        val = 0.0;
+    }
+
+    return cc::Solution(val, type);
+}
+
+void cc::Solution::setVal(double v)
+{
+    _val = v;
+}
+
+void cc::Solution::setType(cc::ExistenceType t)
+{
+    _type = t;
+}
+
+double cc::Solution::getVal() const
+{
+    return _val;
+}
+
+cc::ExistenceType cc::Solution::getType() const
+{
+    return _type;
 }
