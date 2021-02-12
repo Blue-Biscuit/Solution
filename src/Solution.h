@@ -37,6 +37,8 @@ namespace cc
         Solution operator*(const Solution&) const;
         Solution operator/(const Solution&) const;
 
+        Solution operator-() const;
+
     //  ACCESSORS
 
         void setVal(double);

@@ -120,6 +120,11 @@ cc::Solution cc::Solution::operator/(const cc::Solution& o) const
     return cc::Solution(val, type);
 }
 
+cc::Solution cc::Solution::operator-() const
+{
+    return Solution(-_val, -_type);
+}
+
 void cc::Solution::setVal(double v)
 {
     _val = v;
