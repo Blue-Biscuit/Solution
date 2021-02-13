@@ -130,6 +130,11 @@ cc::Solution cc::Solution::operator+(double x) const
     return *this + Solution(x);
 }
 
+cc::Solution cc::Solution::operator-(double x) const
+{
+    return *this + (-x);
+}
+
 void cc::Solution::setVal(double v)
 {
     _val = v;
@@ -153,4 +158,9 @@ cc::ExistenceType cc::Solution::getType() const
 cc::Solution cc::operator+(double x, const Solution& y)
 {
     return y + x;
+}
+
+cc::Solution cc::operator-(double x, const Solution& y)
+{
+    return x + (-y);
 }
