@@ -30,7 +30,7 @@ namespace cc
         //  True if the solution is an infinity.
         bool infinity() const;
 
-    //  OPERATORS
+    //  MAIN OPERATORS
 
         Solution operator+(const Solution&) const;
         Solution operator-(const Solution&) const;
@@ -38,6 +38,20 @@ namespace cc
         Solution operator/(const Solution&) const;
 
         Solution operator-() const;
+
+    //  SECONDARY OPERATORS
+
+        Solution operator+(double) const;
+        friend Solution operator+(double, const Solution&);
+
+        Solution operator-(double) const;
+        friend Solution operator-(double, const Solution&);
+
+        Solution operator*(double) const;
+        friend Solution operator*(double, const Solution&);
+
+        Solution operator/(double) const;
+        friend Solution operator/(double, const Solution&);
 
     //  ACCESSORS
 

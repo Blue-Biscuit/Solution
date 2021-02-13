@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 #include "Solution.h"
 
@@ -18,4 +19,12 @@ int main()
 
 	cout << "Expected: " << (int)ExistenceType::NegInfinity << '\n';
 	cout << "Result " << (int)(Solution(ExistenceType::Infinity) / (-s)).getType() << endl;
+
+	cout << "Expected: " << (int)ExistenceType::Undefined << '\n';
+	cout << "Result: " << (int)(s / Solution(0.0)).getType() << endl;
+	
+	string input;
+	getline(cin, input);
+
+	return 0;
 }
