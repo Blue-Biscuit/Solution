@@ -140,6 +140,11 @@ cc::Solution cc::Solution::operator*(double x) const
     return *this * Solution(x);
 }
 
+cc::Solution cc::Solution::operator/(double x) const
+{
+    return *this / Solution(x);
+}
+
 void cc::Solution::setVal(double v)
 {
     _val = v;
@@ -173,4 +178,9 @@ cc::Solution cc::operator-(double x, const Solution& y)
 cc::Solution cc::operator*(double x, const Solution& y)
 {
     return y * x;
+}
+
+cc::Solution cc::operator/(double x, const Solution& y)
+{
+    return Solution(x) / y;
 }

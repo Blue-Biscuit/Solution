@@ -50,6 +50,9 @@ namespace cc
         Solution operator*(double) const;
         friend Solution operator*(double, const Solution&);
 
+        Solution operator/(double) const;
+        friend Solution operator/(double, const Solution&);
+
     //  ACCESSORS
 
         void setVal(double);
